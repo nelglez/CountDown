@@ -8,7 +8,12 @@
 
 import Foundation
 
-class countDown {
+protocol CountdownDelegate: AnyObject {
+    func countdownDidUpdate(timeRemaining: TimeInterval)
+    func countdownDidFinish()
+}
+
+class Countdown {
     
     //Mark time started
     //Timer: Continually check if we've reached the length of time
@@ -24,7 +29,7 @@ class countDown {
     var timeRemaining: TimeInterval //Number of seconds (Double)
     var duration: TimeInterval
     
-    //TODO: delegate
+    weak var delegate: CountdownDelegate?
     
     
     init(duration: TimeInterval = 60) {
@@ -36,9 +41,10 @@ class countDown {
         self.duration = duration
         self.timeRemaining = duration
         
+        //projected date into future.
         stopDate = Date(timeIntervalSinceNow: duration)
-        
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(update(timer:)), userInfo: nil, repeats: true)
+        //Start a timer to update continiously.
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(update(timer:)), userInfo: nil, repeats: true)
         
     }
     
@@ -47,10 +53,29 @@ class countDown {
         //stopDate - currentTime = timeRemaining
         
         if let stopDate = stopDate {
+
             let currentTime = Date()
-           timeRemaining =  stopDate.timeIntervalSince(currentTime)
-            print("Time Remaining: \(timeRemaining)")
+            
+            if currentTime <= stopDate {
+                //Timer is active, keep counting
+                timeRemaining =  stopDate.timeIntervalSince(currentTime)
+                print("Time Remaining: \(timeRemaining)")
+                delegate?.countdownDidUpdate(timeRemaining: timeRemaining)
+            } else {
+                // currentTime > stopDate
+                //Timer is finidshed, send stop message
+              //Stop the timer
+                clearTimer()
+                reset()
+                delegate?.countdownDidFinish()
+            }
+            
         }
+    }
+    
+    private func clearTimer() {
+        timer?.invalidate()
+        timer = nil
     }
     
     func stop() {
@@ -61,6 +86,7 @@ class countDown {
     func reset() {
        
         stopDate = nil
+        timeRemaining = 0
         
     }
 }
