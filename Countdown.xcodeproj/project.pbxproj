@@ -12,6 +12,7 @@
 		7ACB5A2D2279FBE200C78D46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ACB5A2B2279FBE200C78D46 /* Main.storyboard */; };
 		7ACB5A2F2279FBE400C78D46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ACB5A2E2279FBE400C78D46 /* Assets.xcassets */; };
 		7ACB5A322279FBE400C78D46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ACB5A302279FBE400C78D46 /* LaunchScreen.storyboard */; };
+		7ACB5A3A227A059500C78D46 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB5A39227A059500C78D46 /* Countdown.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7ACB5A2E2279FBE400C78D46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7ACB5A312279FBE400C78D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7ACB5A332279FBE400C78D46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ACB5A39227A059500C78D46 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				7ACB5A272279FBE200C78D46 /* AppDelegate.swift */,
 				7ACB5A292279FBE200C78D46 /* CountdownViewController.swift */,
+				7ACB5A39227A059500C78D46 /* Countdown.swift */,
 				7ACB5A2B2279FBE200C78D46 /* Main.storyboard */,
 				7ACB5A2E2279FBE400C78D46 /* Assets.xcassets */,
 				7ACB5A302279FBE400C78D46 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			files = (
 				7ACB5A2A2279FBE200C78D46 /* CountdownViewController.swift in Sources */,
 				7ACB5A282279FBE200C78D46 /* AppDelegate.swift in Sources */,
+				7ACB5A3A227A059500C78D46 /* Countdown.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

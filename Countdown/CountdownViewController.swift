@@ -17,6 +17,7 @@ class CountdownViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        datePicker.countDownDuration = 60
     }
 
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
